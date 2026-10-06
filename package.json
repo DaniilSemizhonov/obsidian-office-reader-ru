@@ -1,0 +1,17 @@
+{
+  "name": "obsidian-office-reader-ru",
+  "version": "1.0.0",
+  "description": "Русский перевод плагина Office Reader (word-reader) для Obsidian",
+  "main": "main.js",
+  "scripts": {
+    "build:ru": "esbuild src/ru/index.ts --bundle --format=iife --global-name=__officeRu --target=es2018 --minify --outfile=build/ru.txt",
+    "build": "npm run build:ru && esbuild src/main.ts --bundle --format=cjs --platform=browser --target=es2018 --external:obsidian --loader:.txt=text --outfile=main.js",
+    "check": "tsc --noEmit"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "*",
+    "obsidian": "*",
+    "typescript": "*"
+  }
+}
